@@ -26,7 +26,7 @@ export class RendererManager {
 	async saveSnapshot(): Promise<{ success: boolean; error?: string }> {
 		try {
 			const renderTree = this.getRenderTree();
-			const activeProject = this.editor.project.getActive();
+			const activeProject = this.editor.project.getActiveOrNull();
 
 			if (!renderTree || !activeProject) {
 				return { success: false, error: "No project or scene to capture" };
@@ -100,7 +100,7 @@ export class RendererManager {
 		try {
 			const tracks = this.editor.timeline.getTracks();
 			const mediaAssets = this.editor.media.getAssets();
-			const activeProject = this.editor.project.getActive();
+			const activeProject = this.editor.project.getActiveOrNull();
 
 			if (!activeProject) {
 				return { success: false, error: "No active project" };

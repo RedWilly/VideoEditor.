@@ -37,7 +37,10 @@ export default function RootLayout({
 					/>
 				)}
 			</head>
-			<body className={`${siteFont.className} font-sans antialiased`}>
+			<body
+				className={`${siteFont.className} font-sans antialiased`}
+				suppressHydrationWarning
+			>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

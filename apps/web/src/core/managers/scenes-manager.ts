@@ -188,7 +188,7 @@ export class ScenesManager {
 				this.notify();
 
 				if (hasAddedMainTrack) {
-					const activeProject = this.editor.project.getActive();
+					const activeProject = this.editor.project.getActiveOrNull();
 					if (activeProject) {
 						const updatedProject = {
 							...activeProject,
@@ -233,7 +233,7 @@ export class ScenesManager {
 
 		const hasAddedMainScene = ensuredScenes.length > scenes.length;
 		if (hasAddedMainScene || hasAddedMainTrack) {
-			const activeProject = this.editor.project.getActive();
+			const activeProject = this.editor.project.getActiveOrNull();
 
 			if (activeProject) {
 				const updatedProject = {
@@ -282,7 +282,7 @@ export class ScenesManager {
 			: null;
 		this.notify();
 
-		const activeProject = this.editor.project.getActive();
+		const activeProject = this.editor.project.getActiveOrNull();
 		if (activeProject) {
 			const updatedProject = {
 				...activeProject,
@@ -320,7 +320,7 @@ export class ScenesManager {
 		this.active = updatedScene;
 		this.notify();
 
-		const activeProject = this.editor.project.getActive();
+		const activeProject = this.editor.project.getActiveOrNull();
 		if (activeProject) {
 			const updatedProject = {
 				...activeProject,
