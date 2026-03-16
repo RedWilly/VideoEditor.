@@ -15,7 +15,7 @@ export function Onboarding() {
 		defaultValue: false,
 	});
 
-	const isOpen = !hasSeenOnboarding;
+	const isOpen = false; // Onboarding disabled — editor opens directly
 
 	const handleNext = () => {
 		setStep(step + 1);
@@ -57,7 +57,7 @@ export function Onboarding() {
 							<Title title={getStepTitle()} />
 							<Description description="There's still a ton of things to do to make this editor amazing." />
 							<Description description="A lot of features are still missing. We're working hard to build them out!" />
-							<Description description="If you're curious, check out our roadmap [here](https://opencut.app/roadmap)" />
+							<Description description="If you're curious, check out our roadmap [here])" />
 						</div>
 						<NextButton onClick={handleNext}>Next</NextButton>
 					</div>
