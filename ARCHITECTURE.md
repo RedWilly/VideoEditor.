@@ -1,7 +1,7 @@
 # Project Architecture: OpenCut Video Editor
 
 ## Overview
-OpenCut is a high-performance, browser-based video editor built with modern web technologies. It leverages WebAssembly (FFmpeg) for client-side video processing and a custom-built rendering engine for real-time previews. The project follows a monorepo structure, separating the core editor logic from the web application and shared UI components.
+videoeditor is a high-performance, browser-based video editor built with modern web technologies. It leverages WebAssembly (FFmpeg) for client-side video processing and a custom-built rendering engine for real-time previews. The project follows a monorepo structure, separating the core editor logic from the web application and shared UI components.
 
 ---
 
