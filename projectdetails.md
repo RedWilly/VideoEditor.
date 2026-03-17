@@ -1,13 +1,14 @@
-# 🎬 Project Details: VisionAstra VideoEditor (OpenCut)
+# 🎬 Project Details: VisionAstra VideoEditor 
+Experience the editor live here: [https://visionastra.vercel.app/](https://visionastra.vercel.app/)
 
 ## 📌 Project Title
-**VisionAstra VideoEditor** (Internal name: **OpenCut**)
+**VisionAstra VideoEditor** 
 
 ## 🎯 Objective
 To provide a **privacy-first, browser-based video editing experience** that is powerful yet simple enough for anyone to use. The goal is to offer features similar to popular editors like CapCut but with a focus on user privacy (keeping data on-device) and removing common paywalls/watermarks.
 
 ## 📝 Brief Summary
-OpenCut is a high-performance video editor running entirely in the browser. It leverages **WebAssembly (FFmpeg.wasm)** for client-side processing and a custom **Canvas-based rendering engine** for real-time previews. It features a multi-track timeline, support for video/audio/text layers, and an advanced state management system that ensures a smooth editing experience without the need for expensive hardware or cloud processing for basic edits.
+This VideoEditor is a high-performance video editor running entirely in the browser. It leverages **WebAssembly (FFmpeg.wasm)** for client-side processing and a custom **Canvas-based rendering engine** for real-time previews. It features a multi-track timeline, support for video/audio/text layers, and an advanced state management system that ensures a smooth editing experience without the need for expensive hardware or cloud processing for basic edits.
 
 ---
 
@@ -118,4 +119,4 @@ The project employs a **dual-persistence strategy** to balance performance and r
 ---
 
 ## 🔗 Live Project Link
-Experience the editor live here: [https://visionastra.vercel.app/2](https://visionastra.vercel.app/2)
+Experience the editor live here: [https://visionastra.vercel.app/2](https://visionastra.vercel.app/)
