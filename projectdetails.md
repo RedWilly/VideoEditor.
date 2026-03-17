@@ -119,4 +119,4 @@ The project employs a **dual-persistence strategy** to balance performance and r
 ---
 
 ## 🔗 Live Project Link
-Experience the editor live here: [https://visionastra.vercel.app/2](https://visionastra.vercel.app/)
+Experience the editor live here: [https://visionastra.vercel.app/](https://visionastra.vercel.app/)
