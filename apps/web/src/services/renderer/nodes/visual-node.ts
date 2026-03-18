@@ -140,6 +140,7 @@ export abstract class VisualNode<
 					effectParams: resolvedParams,
 					width: scaledWidth,
 					height: scaledHeight,
+					time: animationLocalTime,
 				}),
 			}));
 			currentResult = webglEffectRenderer.applyEffect({

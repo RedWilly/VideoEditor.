@@ -301,6 +301,7 @@ export class TextNode extends BaseNode<TextNodeParams> {
 					effectParams: resolvedParams,
 					width: renderer.width,
 					height: renderer.height,
+					time: localTime,
 				}),
 			}));
 			currentSource = webglEffectRenderer.applyEffect({

@@ -51,6 +51,7 @@ export class CompositeEffectNode extends BaseNode<CompositeEffectNodeParams> {
 				effectParams: this.params.effectParams,
 				width: renderer.width,
 				height: renderer.height,
+				time,
 			}),
 		}));
 		const effectResult = webglEffectRenderer.applyEffect({
