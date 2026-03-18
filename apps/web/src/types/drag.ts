@@ -14,6 +14,12 @@ export interface MediaDragData extends BaseDragData {
 export interface TextDragData extends BaseDragData {
 	type: "text";
 	content: string;
+	fontSize?: number;
+	fontFamily?: string;
+	color?: string;
+	fontWeight?: "normal" | "bold";
+	fontStyle?: "normal" | "italic";
+	textDecoration?: "none" | "underline" | "line-through";
 }
 
 export interface StickerDragData extends BaseDragData {

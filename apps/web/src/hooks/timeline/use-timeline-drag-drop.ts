@@ -21,6 +21,7 @@ import type {
 	MediaDragData,
 	StickerDragData,
 	EffectDragData,
+	TextDragData,
 } from "@/types/drag";
 
 interface UseTimelineDragDropProps {
@@ -206,12 +207,11 @@ export function useTimelineDragDrop({
 			dragData,
 		}: {
 			target: DropTarget;
-			dragData: { name?: string; content?: string };
+			dragData: TextDragData;
 		}) => {
 			const element = buildTextElement({
 				raw: {
-					name: dragData.name ?? "",
-					content: dragData.content ?? "",
+					...dragData,
 				},
 				startTime: target.xPosition,
 			});

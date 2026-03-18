@@ -59,7 +59,14 @@ export function TextView() {
 						dragData={{
 							id: `text-preset-${preset.name}`,
 							type: "text",
-							...preset.element,
+							name: preset.element.name || "Text",
+							content: preset.element.content || "",
+							fontSize: preset.element.fontSize,
+							fontFamily: preset.element.fontFamily,
+							color: preset.element.color,
+							fontWeight: preset.element.fontWeight,
+							fontStyle: preset.element.fontStyle,
+							textDecoration: preset.element.textDecoration,
 						}}
 						aspectRatio={16 / 9}
 						onAddToTimeline={() => handleAddToTimeline({ element: preset.element })}

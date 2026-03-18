@@ -109,4 +109,39 @@ export const TEXT_PRESETS: Array<{ name: string; element: Partial<CreateTextElem
 			fontSize: 22,
 		},
 	},
+	{
+		name: "Bubble",
+		element: {
+			...DEFAULT_TEXT_ELEMENT,
+			name: "Bubble",
+			content: "Bubble Style",
+			fontFamily: "Inter",
+			fontSize: 22,
+			color: "#000000",
+			background: {
+				...DEFAULT_TEXT_ELEMENT.background,
+				enabled: true,
+				color: "#FFFF00",
+				cornerRadius: 50,
+			},
+		},
+	},
+	{
+		name: "Neon",
+		element: {
+			...DEFAULT_TEXT_ELEMENT,
+			name: "Neon",
+			content: "NEON SIGN",
+			fontFamily: "Monoton", // If available, else fallback
+			fontSize: 32,
+			color: "#FF00FF",
+			fontWeight: "bold",
+			background: {
+				...DEFAULT_TEXT_ELEMENT.background,
+				enabled: true,
+				color: "#000000",
+				cornerRadius: 10,
+			},
+		},
+	},
 ];
