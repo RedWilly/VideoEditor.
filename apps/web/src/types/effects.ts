@@ -50,6 +50,7 @@ export interface WebGLEffectPass {
 		effectParams: EffectParamValues;
 		width: number;
 		height: number;
+		time: number;
 	}): Record<string, number | number[]>;
 }
 

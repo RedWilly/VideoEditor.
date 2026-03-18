@@ -12,37 +12,37 @@ import { useEditor } from "@/hooks/use-editor";
 import { buildEffectElement } from "@/lib/timeline/element-utils";
 import type { EffectDefinition } from "@/types/effects";
 
-export function EffectsView() {
-	const effects = getAllEffects().filter((e) => !e.type.startsWith("filter-"));
+export function FiltersView() {
+	const filters = getAllEffects().filter((e) => e.type.startsWith("filter-"));
 
 	return (
-		<PanelView title="Effects">
-			<EffectsGrid effects={effects} />
+		<PanelView title="Filters">
+			<FiltersGrid filters={filters} />
 		</PanelView>
 	);
 }
 
-function EffectsGrid({ effects }: { effects: EffectDefinition[] }) {
+function FiltersGrid({ filters }: { filters: EffectDefinition[] }) {
 	return (
 		<div
 			className="grid gap-2"
 			style={{ gridTemplateColumns: "repeat(auto-fill, minmax(96px, 1fr))" }}
 		>
-			{effects.map((effect) => (
-				<EffectItem key={effect.type} effect={effect} />
+			{filters.map((filter) => (
+				<FilterItem key={filter.type} filter={filter} />
 			))}
 		</div>
 	);
 }
 
-function EffectPreviewCanvas({ effectType }: { effectType: string }) {
+function FilterPreviewCanvas({ filterType }: { filterType: string }) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
 	useEffect(() => {
 		const render = () => {
 			if (canvasRef.current) {
 				effectPreviewService.renderPreview({
-					effectType,
+					effectType: filterType,
 					params: {},
 					targetCanvas: canvasRef.current,
 				});
@@ -51,18 +51,18 @@ function EffectPreviewCanvas({ effectType }: { effectType: string }) {
 
 		render();
 		return onPreviewImageReady({ callback: render });
-	}, [effectType]);
+	}, [filterType]);
 
 	return <canvas ref={canvasRef} className="size-full" />;
 }
 
-function EffectItem({ effect }: { effect: EffectDefinition }) {
+function FilterItem({ filter }: { filter: EffectDefinition }) {
 	const editor = useEditor();
 
 	const handleAddToTimeline = useCallback(() => {
 		const currentTime = editor.playback.getCurrentTime();
 		const element = buildEffectElement({
-			effectType: effect.type,
+			effectType: filter.type,
 			startTime: currentTime,
 		});
 
@@ -70,19 +70,19 @@ function EffectItem({ effect }: { effect: EffectDefinition }) {
 			placement: { mode: "auto", trackType: "effect" },
 			element,
 		});
-	}, [editor, effect.type]);
+	}, [editor, filter.type]);
 
-	const preview = <EffectPreviewCanvas effectType={effect.type} />;
+	const preview = <FilterPreviewCanvas filterType={filter.type} />;
 
 	return (
 		<DraggableItem
-			name={effect.name}
+			name={filter.name}
 			preview={preview}
 			dragData={{
-				id: effect.type,
-				name: effect.name,
+				id: filter.type,
+				name: filter.name,
 				type: "effect",
-				effectType: effect.type,
+				effectType: filter.type,
 				targetElementTypes: EFFECT_TARGET_ELEMENT_TYPES,
 			}}
 			onAddToTimeline={handleAddToTimeline}

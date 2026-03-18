@@ -59,6 +59,7 @@ export class EffectLayerNode extends BaseNode<EffectLayerNodeParams> {
 				effectParams: this.params.effectParams,
 				width: renderer.width,
 				height: renderer.height,
+				time,
 			}),
 		}));
 		const effectResult = webglEffectRenderer.applyEffect({

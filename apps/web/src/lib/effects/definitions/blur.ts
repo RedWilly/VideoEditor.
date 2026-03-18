@@ -21,7 +21,7 @@ export const blurEffectDefinition: EffectDefinition = {
 		passes: [
 		{
 			fragmentShader: blurFragmentShader,
-			uniforms: ({ effectParams, width }) => {
+			uniforms: ({ effectParams, width, time }) => {
 				const intensity =
 					typeof effectParams.intensity === "number"
 						? effectParams.intensity
@@ -34,7 +34,7 @@ export const blurEffectDefinition: EffectDefinition = {
 		},
 		{
 			fragmentShader: blurFragmentShader,
-			uniforms: ({ effectParams, height }) => {
+			uniforms: ({ effectParams, height, time }) => {
 				const intensity =
 					typeof effectParams.intensity === "number"
 						? effectParams.intensity
