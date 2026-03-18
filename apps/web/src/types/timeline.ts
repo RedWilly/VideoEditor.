@@ -1,6 +1,7 @@
 import type { ElementAnimations } from "./animation";
 import type { Effect, EffectParamValues } from "./effects";
 import type { BlendMode, Transform } from "./rendering";
+import type { Transition } from "./transitions";
 
 export interface Bookmark {
 	time: number;
@@ -95,6 +96,8 @@ interface BaseTimelineElement {
 	trimEnd: number;
 	sourceDuration?: number;
 	animations?: ElementAnimations;
+	transitionIn?: Transition;
+	transitionOut?: Transition;
 }
 
 export interface VideoElement extends BaseTimelineElement {

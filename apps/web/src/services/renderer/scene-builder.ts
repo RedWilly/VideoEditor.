@@ -80,6 +80,8 @@ function buildTrackNodes({
 							opacity: element.opacity,
 							blendMode: element.blendMode,
 							effects: element.effects,
+							transitionIn: element.transitionIn,
+							transitionOut: element.transitionOut,
 						}),
 					);
 				}
@@ -96,6 +98,8 @@ function buildTrackNodes({
 							opacity: element.opacity,
 							blendMode: element.blendMode,
 							effects: element.effects,
+							transitionIn: element.transitionIn,
+							transitionOut: element.transitionOut,
 							...(isPreview && {
 								maxSourceSize: PREVIEW_MAX_IMAGE_SIZE,
 							}),
@@ -112,6 +116,8 @@ function buildTrackNodes({
 						canvasHeight: canvasSize.height,
 						textBaseline: "middle",
 						effects: element.effects,
+						transitionIn: element.transitionIn,
+						transitionOut: element.transitionOut,
 					}),
 				);
 			}
@@ -129,6 +135,8 @@ function buildTrackNodes({
 						opacity: element.opacity,
 						blendMode: element.blendMode,
 						effects: element.effects,
+						transitionIn: element.transitionIn,
+						transitionOut: element.transitionOut,
 					}),
 				);
 			}

@@ -5,6 +5,8 @@ import type { Effect } from "@/types/effects";
 import type { BlendMode } from "@/types/rendering";
 import type { Transform } from "@/types/timeline";
 import type { ElementAnimations } from "@/types/animation";
+import type { Transition } from "@/types/transitions";
+import { applyTransition } from "@/lib/animation/transition-resolve";
 import {
 	getElementLocalTime,
 	resolveOpacityAtTime,
@@ -25,6 +27,8 @@ export interface VisualNodeParams {
 	opacity: number;
 	blendMode?: BlendMode;
 	effects?: Effect[];
+	transitionIn?: Transition;
+	transitionOut?: Transition;
 }
 
 export abstract class VisualNode<
@@ -71,11 +75,48 @@ export abstract class VisualNode<
 			animations: this.params.animations,
 			localTime: animationLocalTime,
 		});
-		const opacity = resolveOpacityAtTime({
+		let opacity = resolveOpacityAtTime({
 			baseOpacity: this.params.opacity,
 			animations: this.params.animations,
 			localTime: animationLocalTime,
 		});
+
+		if (this.params.transitionIn && animationLocalTime < this.params.transitionIn.duration) {
+			const result = applyTransition({
+				type: this.params.transitionIn.type,
+				duration: this.params.transitionIn.duration,
+				localTime: animationLocalTime,
+				elementDuration: this.params.duration,
+				mode: "in",
+				opacity,
+				transform,
+				width: renderer.width,
+				height: renderer.height,
+			});
+			opacity = result.opacity;
+			transform.position = result.transform.position;
+			transform.scale = result.transform.scale;
+		}
+
+		if (
+			this.params.transitionOut &&
+			animationLocalTime > this.params.duration - this.params.transitionOut.duration
+		) {
+			const result = applyTransition({
+				type: this.params.transitionOut.type,
+				duration: this.params.transitionOut.duration,
+				localTime: animationLocalTime,
+				elementDuration: this.params.duration,
+				mode: "out",
+				opacity,
+				transform,
+				width: renderer.width,
+				height: renderer.height,
+			});
+			opacity = result.opacity;
+			transform.position = result.transform.position;
+			transform.scale = result.transform.scale;
+		}
 		const containScale = Math.min(
 			renderer.width / sourceWidth,
 			renderer.height / sourceHeight,
